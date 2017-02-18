@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FGAdvice/Controllers/ViewController.swift"
-            timestampString = "509134266.478263"
+            timestampString = "509140258.034821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "menuTapAction(_:)"
             landmarkType = "7">
          </BreakpointContent>

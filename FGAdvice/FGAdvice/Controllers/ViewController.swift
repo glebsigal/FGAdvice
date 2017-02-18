@@ -34,6 +34,7 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     func initSources() {
         self.initDrawer()
         self.getAdvice()
+        self.becomeFirstResponder()
     }
     
     //MARK: - Api's methods
@@ -46,6 +47,19 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
                 self.mainTextView.text = advice?.text
             }
         })
+    }
+    
+    //MARK: - Motion methods
+    
+    override open var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override open func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            print("shaked")
+            getAdvice()
+        }
     }
     
     // MARK: - Menu's UI methods
