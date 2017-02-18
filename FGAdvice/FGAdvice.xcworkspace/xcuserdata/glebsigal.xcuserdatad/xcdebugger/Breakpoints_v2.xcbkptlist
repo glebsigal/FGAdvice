@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FGAdvice/Controllers/ViewController.swift"
-            timestampString = "509140258.034821"
+            timestampString = "509142803.53937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "menuTapAction(_:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "replaceText(string:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FGAdvice/Controllers/ViewController.swift"
+            timestampString = "509142803.53937"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "replaceText(string:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

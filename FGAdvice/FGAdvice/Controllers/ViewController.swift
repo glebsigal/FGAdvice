@@ -22,7 +22,8 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     var isExpanded = false
     var apiRoot = ApiRoot()
     private var drawerController: KYDrawerController?
-    
+    let denyArray = ["<", "#"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initSources()
@@ -44,9 +45,19 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
         apiRoot.getRandomAdvice(completionHandler: { (advice, error) in
             self.hideHud()
             if advice != nil {
-                self.mainTextView.text = advice?.text
+                self.replaceText(string: advice!.text!)
             }
         })
+    }
+    
+    func replaceText(string:String) {
+        for element in denyArray {
+            if string.lowercased().range(of:element) != nil {
+                self.getAdvice()
+            }
+        }
+        let newString = string.replacingOccurrences(of: "&nbsp;", with: " ")
+        self.mainTextView.text = newString
     }
     
     //MARK: - Motion methods
@@ -57,7 +68,6 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     
     override open func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            print("shaked")
             getAdvice()
         }
     }
