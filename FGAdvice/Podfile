@@ -1,0 +1,22 @@
+platform :ios, '9.0'
+
+target 'FGAdvice' do
+  use_frameworks!
+
+  pod 'KYDrawerController'
+  pod 'MBProgressHUD'
+  pod 'ObjectMapper'
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
+
+  target 'FGAdviceTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'FGAdviceUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.3.0)
+  - KYDrawerController (2.0.1)
+  - MBProgressHUD (1.0.0)
+  - ObjectMapper (2.2.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - KYDrawerController
+  - MBProgressHUD
+  - ObjectMapper
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  KYDrawerController: b716cfa5730dc2133a67efcfc28b3b5a2cff6101
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 96fb280f68ad993f8082c9d687213c9c7e29acb9
+
+COCOAPODS: 1.1.1

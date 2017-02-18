@@ -1,0 +1,6 @@
+framework module Pods_FGAdvice_FGAdviceTests {
+  umbrella header "Pods-FGAdvice-FGAdviceTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
