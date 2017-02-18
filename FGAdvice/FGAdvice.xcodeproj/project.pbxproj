@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2F8D73CAA506EBFEDFA29A31 /* Pods_FGAdvice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B0B1DD446E6DFDE5DF10C9 /* Pods_FGAdvice.framework */; };
 		450462784AFE6345D188E100 /* Pods_FGAdvice_FGAdviceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23B7E00839A1616404D995A /* Pods_FGAdvice_FGAdviceUITests.framework */; };
+		4C242CDD1E58C02B00E9D98C /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C242CDC1E58C02B00E9D98C /* RequestHelper.swift */; };
+		4C242CDF1E58C1B100E9D98C /* ApiRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C242CDE1E58C1B100E9D98C /* ApiRoot.swift */; };
+		4C242CE21E58C24F00E9D98C /* Advice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C242CE11E58C24F00E9D98C /* Advice.swift */; };
 		4CCF70681E58392E004CE8A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF70671E58392E004CE8A8 /* AppDelegate.swift */; };
 		4CCF706D1E58392E004CE8A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCF706B1E58392E004CE8A8 /* Main.storyboard */; };
 		4CCF706F1E58392E004CE8A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCF706E1E58392E004CE8A8 /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		36C02557A308FDECDC6EFF9B /* Pods-FGAdviceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FGAdviceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FGAdviceTests/Pods-FGAdviceTests.release.xcconfig"; sourceTree = "<group>"; };
 		3C9CBAABBC341126F9992B70 /* Pods_FGAdvice_FGAdviceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FGAdvice_FGAdviceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42826D1A6A87ACF98DC8205B /* Pods_FGAdviceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FGAdviceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C242CDC1E58C02B00E9D98C /* RequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestHelper.swift; path = Network/RequestHelper.swift; sourceTree = "<group>"; };
+		4C242CDE1E58C1B100E9D98C /* ApiRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiRoot.swift; path = Network/ApiRoot.swift; sourceTree = "<group>"; };
+		4C242CE11E58C24F00E9D98C /* Advice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Advice.swift; path = Models/Advice.swift; sourceTree = "<group>"; };
 		4CCF70641E58392E004CE8A8 /* FGAdvice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FGAdvice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCF70671E58392E004CE8A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CCF706C1E58392E004CE8A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +107,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C242CDB1E58C01500E9D98C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4C242CDC1E58C02B00E9D98C /* RequestHelper.swift */,
+				4C242CDE1E58C1B100E9D98C /* ApiRoot.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		4C242CE01E58C23D00E9D98C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C242CE11E58C24F00E9D98C /* Advice.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		4CCF705B1E58392D004CE8A8 = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +149,10 @@
 		4CCF70661E58392E004CE8A8 /* FGAdvice */ = {
 			isa = PBXGroup;
 			children = (
+				4C242CE01E58C23D00E9D98C /* Models */,
 				4CCF709C1E584B6C004CE8A8 /* Application */,
 				4CCF70951E58498A004CE8A8 /* Controllers */,
+				4C242CDB1E58C01500E9D98C /* Network */,
 				4CCF706B1E58392E004CE8A8 /* Main.storyboard */,
 				4CCF706E1E58392E004CE8A8 /* Assets.xcassets */,
 				4CCF70701E58392E004CE8A8 /* LaunchScreen.storyboard */,
@@ -485,8 +510,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CCF70681E58392E004CE8A8 /* AppDelegate.swift in Sources */,
+				4C242CDF1E58C1B100E9D98C /* ApiRoot.swift in Sources */,
 				4CCF709B1E584997004CE8A8 /* ViewController.swift in Sources */,
 				4CCF709A1E584997004CE8A8 /* DrawerViewController.swift in Sources */,
+				4C242CDD1E58C02B00E9D98C /* RequestHelper.swift in Sources */,
+				4C242CE21E58C24F00E9D98C /* Advice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

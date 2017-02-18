@@ -8,6 +8,7 @@
 
 import UIKit
 import KYDrawerController
+import MBProgressHUD
 
 class ViewController: UIViewController, KYDrawerControllerDelegate {
     @IBOutlet weak var menuButton: UIButton!
@@ -19,22 +20,32 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     @IBOutlet weak var shakeCenterConstraint: NSLayoutConstraint!
     
     var isExpanded = false
+    var apiRoot = ApiRoot()
     private var drawerController: KYDrawerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initSources()
-        self.initUI()
+        
     }
     
     // MARK: - Init functions
     
     func initSources() {
         self.initDrawer()
+        self.getAdvice()
     }
     
-    func initUI() {
-        
+    //MARK: - Api's methods
+    
+    func getAdvice() {
+        self.showHud()
+        apiRoot.getRandomAdvice(completionHandler: { (advice, error) in
+            self.hideHud()
+            if advice != nil {
+                self.mainTextView.text = advice?.text
+            }
+        })
     }
     
     // MARK: - Menu's UI methods
@@ -87,6 +98,17 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
             animateMenu(state: true)
             }
         }
+    }
+    
+    // Mark: - other UI methods
+    func showHud() {
+    let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+    loadingNotification.mode = MBProgressHUDMode.indeterminate
+    loadingNotification.label.text = "Loading"
+    }
+    
+    func hideHud() {
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
 }
 
