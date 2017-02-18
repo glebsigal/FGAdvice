@@ -22,7 +22,7 @@ My simple MVC - IOS app on **SWIFT** with fuck*ng great advices.
 - Opportunity to use in other custom rest server-client apps
 - Include mapping methods (Alamofire - SwiftyJSON - ObjectMapper)
 
-![](https://pp.vk.me/c604827/v604827583/32997/t7VcBiCVwOE.jpg)
+![](https://pp.vk.me/c604827/v604827110/31cd5/ZSiYTrtf51Y.jpg)
 
 
 
