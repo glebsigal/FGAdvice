@@ -11,33 +11,36 @@ import KYDrawerController
 
 class ViewController: UIViewController, KYDrawerControllerDelegate {
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var mainTextView: UITextView!
+    @IBOutlet weak var tagLabel: UILabel!
+    @IBOutlet weak var mainAreaLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mainAreaRightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var menuLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var shakeCenterConstraint: NSLayoutConstraint!
     
-    var defaultMenuFrame = CGRect(x:0,y:0,width:0,height:0)
+    var isExpanded = false
     private var drawerController: KYDrawerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initSources()
         self.initUI()
-
     }
     
-    // MARK: - init functions
+    // MARK: - Init functions
     
     func initSources() {
         self.initDrawer()
     }
     
     func initUI() {
-        defaultMenuFrame = self.menuButton.frame
-        self.drawerController?.containerViewTapGesture.view?.tag = 1002
-        self.addViewTapGesture()
+        
     }
     
     // MARK: - Menu's UI methods
     
     @IBAction func menuTapAction(_ sender: Any) {
-        self.showMenu(state: true)
+        self.drawerController?.setDrawerState(.opened, animated: true)
     }
     
     
@@ -46,47 +49,43 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
             return
         }
         drawer.delegate = self
+        drawer.drawerWidth = self.view.frame.width / 2
         self.drawerController = drawer
         
-    }
-    
-    func addViewTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkTap(sender:)))
-        self.drawerController?.containerViewTapGesture.view?.addGestureRecognizer(tapGesture)
-    }
-    
-    func checkTap(sender:UITapGestureRecognizer) {
-        if sender.view?.tag == 1002 {
-            self.animateMenu(state: false)
-            self.drawerController?.setDrawerState(.closed, animated: true)
-        }
-    }
-    
-    
-    func showMenu (state:Bool) {
-            animateMenu(state: true)
-            self.drawerController?.setDrawerState(.opened, animated: true)
-    
     }
     
     func animateMenu (state : Bool) {
         switch state {
         case true:
+            self.menuLeftConstraint.constant = self.view.frame.width/2 + 15
+            self.mainAreaLeftConstraint.constant = self.view.frame.width/2 + 15
+            self.shakeCenterConstraint.constant = self.view.frame.width/2 + 15
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-                self.menuButton.frame.origin.x = self.defaultMenuFrame.origin.x + 210
+                self.view.frame = CGRect(x:0,y:0,width:self.view.frame.width+self.mainAreaLeftConstraint.constant,height:self.view.frame.height)
+                self.view.layoutIfNeeded()
+                self.menuButton.setImage(UIImage(named: "arrow"), for: UIControlState.normal)
+                self.isExpanded = true
             })
         case false:
+            self.menuLeftConstraint.constant = 0
+            self.mainAreaLeftConstraint.constant = 0
+            self.shakeCenterConstraint.constant = 0
             UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
-                self.menuButton.frame.origin.x = self.defaultMenuFrame.origin.x
+                self.view.layoutIfNeeded()
+                self.menuButton.setImage(UIImage(named: "menu"), for: UIControlState.normal)
+                self.isExpanded = false
             })
         }
     }
+    
     
     func drawerController(_ drawerController: KYDrawerController, stateChanged state: KYDrawerController.DrawerState) {
         if state == .closed {
             animateMenu(state: false)
         } else {
+            if isExpanded == false {
             animateMenu(state: true)
+            }
         }
     }
 }
