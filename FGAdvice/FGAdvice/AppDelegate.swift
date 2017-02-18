@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // MARK: - DrawerViewController init
+        
         let mainViewController   = ViewController()
         let drawerViewController = DrawerViewController()
         let drawerController     = KYDrawerController(drawerDirection: .left, drawerWidth: 200)
@@ -29,6 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          drawerController.drawerWidth     = 200
          */
         
+        // MARK: - NavigationController init 
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.isHidden = true
+        
+        
+        // MARK: - System
+          UIApplication.shared.statusBarStyle = .lightContent
         
         return true
     }
