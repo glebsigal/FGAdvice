@@ -1,10 +1,39 @@
-# FGAdvice
-Simple MVC-IOS app by FuckingGreatAdvice's API
-http://fucking-great-advice.ru/
+#FGAdvice IOS
 
-<a name="Included pods"></a>Included pods
-KYDrawerController
-MBProgressHUD
-ObjectMapper
-SwiftyJSON
-Alamofire
+My simple MVC - IOS app on **SWIFT** with fuck*ng great advices.
+
+
+
+##**Included pods:**
+
+- ObjectMapper
+- SwiftyJSON
+- Alamofire
+- KYDrawerController
+- MBProgressHUD
+
+![](https://pp.vk.me/c604827/v604827955/3ac09/HgxPsXHTVv8.jpg)
+
+##**Features:**
+
+- Getting advices by shake motions
+- List of different categories tags
+- Some custom animations
+- Opportunity to use in other custom rest server-client apps
+- Include mapping methods (Alamofire - SwiftyJSON - ObjectMapper)
+
+![](https://pp.vk.me/c604827/v604827583/32997/t7VcBiCVwOE.jpg)
+
+
+
+##**ToDo:**
+
+- Make code more clear / add comments
+- Share button
+- Audio advices
+- Some layout fixes
+
+
+[Using FuckingGreatAdvice's API][1]. Thank you, guys, very nice project.
+
+[1]:  http://fucking-great-advice.ru/api/
