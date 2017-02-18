@@ -14,6 +14,7 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var mainTextView: UITextView!
     @IBOutlet weak var tagLabel: UILabel!
+    @IBOutlet weak var shakeLabel: UILabel!
     @IBOutlet weak var mainAreaLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainAreaRightConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuLeftConstraint: NSLayoutConstraint!
@@ -23,11 +24,12 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     var apiRoot = ApiRoot()
     private var drawerController: KYDrawerController?
     let denyArray = ["<", "#"]
+    var categoryName = "С цензурой"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initSources()
-        
+        self.initUI()
     }
     
     // MARK: - Init functions
@@ -35,14 +37,23 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     func initSources() {
         self.initDrawer()
         self.getAdvice()
+        self.initObserver()
         self.becomeFirstResponder()
     }
     
-    //MARK: - Api's methods
+    func initUI () {
+        self.animateShakeLabel()
+    }
+    
+    func initObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handlerTag(notif:)), name: NSNotification.Name(rawValue: "TagChanged"), object: nil)
+    }
+    
+    //MARK: - Api's methods and work with them
     
     func getAdvice() {
         self.showHud()
-        apiRoot.getRandomAdvice(completionHandler: { (advice, error) in
+        apiRoot.getRandomAdvice(tag:categoryName, completionHandler: { (advice, error) in
             self.hideHud()
             if advice != nil {
                 self.replaceText(string: advice!.text!)
@@ -60,6 +71,14 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
         self.mainTextView.text = newString
     }
     
+    
+    func handlerTag(notif: NSNotification) {
+        categoryName = notif.userInfo!["newTag"] as! String
+        self.tagLabel.text = categoryName.uppercased()
+        self.drawerController?.setDrawerState(.closed, animated: true)
+        self.getAdvice()
+    }
+    
     //MARK: - Motion methods
     
     override open var canBecomeFirstResponder: Bool {
@@ -68,7 +87,7 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     
     override open func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            getAdvice()
+            self.getAdvice()
         }
     }
     
@@ -97,7 +116,9 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
             self.shakeCenterConstraint.constant = self.view.frame.width/2 + 15
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
                 self.view.frame = CGRect(x:0,y:0,width:self.view.frame.width+self.mainAreaLeftConstraint.constant,height:self.view.frame.height)
+                if self.isExpanded != true {
                 self.view.layoutIfNeeded()
+                }
                 self.menuButton.setImage(UIImage(named: "arrow"), for: UIControlState.normal)
                 self.isExpanded = true
             })
@@ -125,14 +146,24 @@ class ViewController: UIViewController, KYDrawerControllerDelegate {
     }
     
     // Mark: - other UI methods
+    
     func showHud() {
     let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
     loadingNotification.mode = MBProgressHUDMode.indeterminate
-    loadingNotification.label.text = "Loading"
+    loadingNotification.label.text = "Загрузка, бро"
     }
     
     func hideHud() {
         MBProgressHUD.hide(for: self.view, animated: true)
     }
+    
+    // Shake label animations (Fix this)
+    func animateShakeLabel() {
+    self.view.layoutIfNeeded()
+    self.shakeLabel.layer.removeAllAnimations()
+    UIView.animate(withDuration: 0.6, delay: 0, options: [.repeat, .autoreverse], animations: {
+    self.shakeLabel.frame.origin.x = self.shakeLabel.frame.origin.x + 20
+    }, completion: nil)
+}
 }
 

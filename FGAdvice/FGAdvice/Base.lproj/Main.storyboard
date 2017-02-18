@@ -62,7 +62,7 @@
                                     <action selector="menuTapAction:" destination="33J-7V-mbs" eventType="touchUpInside" id="5Qq-N1-avf"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Используй блять стереотипы!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-nX-OoR">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-nX-OoR">
                                 <rect key="frame" x="16" y="94" width="288" height="438"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="438" id="fXu-nh-Cj6"/>
@@ -71,8 +71,8 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="БЕЗ КАТЕГОРИИ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrK-aI-Lwt">
-                                <rect key="frame" x="90" y="41" width="140" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C ЦЕНЗУРОЙ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrK-aI-Lwt">
+                                <rect key="frame" x="90" y="41" width="110" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -104,6 +104,7 @@
                         <outlet property="menuButton" destination="7ko-0J-XDd" id="waP-cp-oZB"/>
                         <outlet property="menuLeftConstraint" destination="pmn-sD-LZg" id="lZU-3Q-AyF"/>
                         <outlet property="shakeCenterConstraint" destination="pzn-Bw-aXP" id="gft-TX-qcW"/>
+                        <outlet property="shakeLabel" destination="1JE-XS-PUb" id="01y-c4-ylM"/>
                         <outlet property="tagLabel" destination="hrK-aI-Lwt" id="fIf-Z6-Uii"/>
                     </connections>
                 </viewController>

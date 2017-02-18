@@ -10,23 +10,13 @@ import UIKit
 
 class DrawerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView:UITableView?
-    let tagList = ["Дизайнеру", "Кодеру", "Верстальщику", "Фотографу", "Копирайтеру", "Маркетологу",
-                   "Сеошнику", "Водителю", "Музыканту", "Фокуснику", "Врачу", "Студенту", "За жизнь",
-                   "Для нее", "Для него"
-    ]
+    let tagList = ["С цензурой", "Без категории", "Дизайнеру", "Кодеру", "Верстальщику", "Фотографу", "Копирайтеру", "Маркетологу", "Сеошнику", "Водителю", "Музыканту", "Фокуснику", "Врачу", "Студенту", "За жизнь",
+        "Для нее", "Для него"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidLayoutSubviews() {
-     
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,9 +44,8 @@ class DrawerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TagChanged"), object: nil, userInfo: ["newTag":self.tagList[indexPath.row]])
     }
-    
     
     
 

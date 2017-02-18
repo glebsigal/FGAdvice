@@ -22,9 +22,11 @@ class RequestHelper {
     }
     
     func sendRequest(URL: String, completionHandler: @escaping RequestBasicCompletionHandler) {
-        manager.request(applicationBaseURL + URL, method: .get)
+        let startString = applicationBaseURL + URL
+        let urlString = startString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) ?? startString
+        
+        manager.request(urlString, method: .get)
             .validate(statusCode: 200..<300)
-//            .validate(contentType: ["application/json"])
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):

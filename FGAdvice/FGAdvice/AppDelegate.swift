@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootViewController: mainViewController
         )
         drawerController.drawerViewController = drawerViewController
-        
         /* Customize
          drawerController.drawerDirection = .Right
          drawerController.drawerWidth     = 200
