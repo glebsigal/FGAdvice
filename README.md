@@ -12,7 +12,7 @@ My simple MVC - IOS app on **SWIFT** with fuck*ng great advices.
 - KYDrawerController
 - MBProgressHUD
 
-<img src="https://pp.vk.me/c604827/v604827955/3ac09/HgxPsXHTVv8.jpg" width="320" />
+<img src="https://pp.vk.me/c604827/v604827955/3ac09/HgxPsXHTVv8.jpg" width="500" />
 **Features:**
 
 - Getting advices by shake motions
@@ -22,7 +22,7 @@ My simple MVC - IOS app on **SWIFT** with fuck*ng great advices.
 - Include mapping methods (Alamofire - SwiftyJSON - ObjectMapper)
 
 
-<img src="https://pp.vk.me/c604827/v604827110/31cd5/ZSiYTrtf51Y.jpg" width="320" />
+<img src="https://pp.vk.me/c604827/v604827110/31cd5/ZSiYTrtf51Y.jpg" width="500" />
 
 
 
