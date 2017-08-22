@@ -1,10 +1,10 @@
-#FGAdvice IOS
+## FGAdvice IOS
 
 My simple MVC - IOS app on **SWIFT** with fuck*ng great advices.
 
 
 
-##**Included pods:**
+**Included pods:**
 
 - ObjectMapper
 - SwiftyJSON
@@ -12,9 +12,8 @@ My simple MVC - IOS app on **SWIFT** with fuck*ng great advices.
 - KYDrawerController
 - MBProgressHUD
 
-![](https://pp.vk.me/c604827/v604827955/3ac09/HgxPsXHTVv8.jpg)
-
-##**Features:**
+<img src="https://pp.vk.me/c604827/v604827955/3ac09/HgxPsXHTVv8.jpg" width="320" />
+**Features:**
 
 - Getting advices by shake motions
 - List of different categories tags
@@ -22,11 +21,12 @@ My simple MVC - IOS app on **SWIFT** with fuck*ng great advices.
 - Opportunity to use in other custom rest server-client apps
 - Include mapping methods (Alamofire - SwiftyJSON - ObjectMapper)
 
-![](https://pp.vk.me/c604827/v604827110/31cd5/ZSiYTrtf51Y.jpg)
+
+<img src="https://pp.vk.me/c604827/v604827110/31cd5/ZSiYTrtf51Y.jpg" width="320" />
 
 
 
-##**ToDo:**
+**ToDo:**
 
 - Make code more clear / add comments
 - Share button
