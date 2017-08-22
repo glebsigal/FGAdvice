@@ -13,6 +13,7 @@ My simple MVC - IOS app on **SWIFT** with fuck*ng great advices.
 - MBProgressHUD
 
 <img src="https://pp.vk.me/c604827/v604827955/3ac09/HgxPsXHTVv8.jpg" width="500" />
+
 **Features:**
 
 - Getting advices by shake motions
